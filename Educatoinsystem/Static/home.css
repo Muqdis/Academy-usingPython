@@ -1,0 +1,88 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+} */
+
+/* body {
+     background-image: url("/Static/images/new.png");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+} */
+
+/* Header */
+/* .header {
+    background-color: #2e8b57;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo p {
+    font-size: 14px;
+}
+
+/* Buttons */
+/* .auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+}
+
+.login {
+    background-color: white;
+    color: #2e8b57;
+    font-weight: bold;
+}
+
+.signup {
+    background-color: #1f6f46;
+    color: white;
+}
+
+/* Main Section */
+/* .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+}
+
+.content {
+    width: 50%;
+}
+
+.content h2 {
+    font-size: 36px;
+    color: #2e8b57;
+}
+
+.get-started {
+    background-color: #2e8b57;
+    color: white;
+    padding: 12px 25px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.image img {
+    width: 100%;
+    max-width: 450px;
+} */ */ */

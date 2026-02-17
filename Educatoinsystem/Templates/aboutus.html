@@ -1,0 +1,143 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+</head>
+<body>
+
+<h1>About Our Education System</h1>
+
+<p>
+This platform connects students who cannot afford education with tutors
+who want to teach for free or earn by teaching.
+</p> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Basic styling for header, footer, and content */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0a0e54ff;
+            height: 30px;
+            color: white;
+            padding: 10px 0;
+        }
+        header nav h2 {
+            font size: 24px;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        header nav {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .mission {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mission img {
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .mission-text {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #0b094aff;
+            color: white;
+            text-align: center;
+            height: 30px;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav>
+        <div class="logo">
+            <h2>Education System</h2>
+        </div>
+        <div class="menu">
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'aboutus' %}">About Us</a>
+            <a href="{% url 'courses' %}">Courses</a>
+        </div>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>About Us</h1>
+    <p>Welcome to our Education System platform! Our mission is to provide quality education to every student, regardless of their financial background, and to empower tutors who want to make a positive impact in society.</p>
+
+    <div class="mission">
+        <img src="{% static 'images/about.png' %}" alt="Quality Education">
+        <div class="mission-text">
+            <h2>Our Mission</h2>
+            <p>We believe that education is the key to societal development. Our platform connects students who cannot afford tuition with tutors who either want to teach for free or earn by teaching. Through this system, we aim to:</p>
+            <ul>
+                <li>Promote equal access to quality education.</li>
+                <li>Encourage community service and social responsibility among tutors.</li>
+                <li>Support sustainable learning through online and in-person sessions.</li>
+                <li>Empower students to achieve their academic and personal goals.</li>
+            </ul>
+        </div>
+    </div>
+
+    <p style="margin-top:20px;">We are committed to building a society where knowledge is shared freely and education becomes a right, not a privilege.</p>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Education System. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
+

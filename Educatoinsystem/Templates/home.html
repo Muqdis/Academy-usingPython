@@ -1,0 +1,292 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education System</title>
+    
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }  
+        nav { background: rgba(5, 83, 10, 0.93); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 100; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        .hero {
+            height: 90vh;
+            background: url('your-background.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 1px 1px 7px #121111ff;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 { color: green; font-size: 1.5rem; margin: 0; }
+        .hero p { color:green; font-size: 1rem }
+        .section { padding: 60px 20px; }
+        .section h2 { color: green; }
+        .section p { color:green; }
+        .courses { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .card { background: #085e27e8; border-radius: 10px; width: 280px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .card h3 { color: white; margin-top: 0; }
+        .card p { color: white; }
+        footer { background: #084f20ff; color: white; text-align: center; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <!-- Left side: Logo / Home link -->
+        <div>
+            <a href="#home">Education System</a>
+        </div>
+
+        <!-- Right side: Menu + Buttons -->
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#courses">Courses</a>
+            <a href="#contact">Contact</a>
+            <!-- Login and Signup buttons -->
+            <button onclick="window.location.href='#login'">Login</button>
+            <button onclick="window.location.href='#signup'">Sign Up</button>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <div>
+             <img src="{% static 'images/new.png' %}" alt="Student and Tutor" width="1300" height="550"> 
+            <h1>Welcome to Your Academy</h1>
+            <p>Learn skills that will transform your future</p>
+        </div>
+    </div>
+    <!-- About Section -->
+    <div class="section" id="about">
+        <h2>About Us</h2>
+        <p>Welcome to our Academy Platform, a modern web-based application built with Django to connect students and tutors in a secure, interactive environment. What makes our platform unique is its dual purpose: we provide free educational support for students who cannot afford tuition and empower tutors who wish to contribute to society, while also offering full academic management features for both students and tutors. Our platform caters to four types of users:
+
+Paid Students: Students who enroll in regular courses with professional tutors.
+
+Free Students: Students in need of financial support who receive guidance from voluntary tutors.
+
+Paid Tutors: Tutors who offer their expertise as a service and earn through their teaching.
+
+Volunteer Tutors: Tutors who provide education freely to support students and contribute to societal development.
+  </div>
+
+    <!-- Courses Section -->
+    <div class="section" id="courses">
+        <h2>Our Courses</h2>
+        <div class="courses">
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, JavaScript and build real projects.</p>
+            </div>
+            <div class="card">
+                <h3>Graphic Design</h3>
+                <p>Master design principles with hands‑on training in tools like Photoshop and Illustrator.</p>
+            </div>
+            <div class="card">
+                <h3>Digital Marketing</h3>
+                <p>Become an expert in SEO, social media & online advertising.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <div class="section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: muqdisajaz123@gmail.com | Phone: +92‑316‑9228267</p>
+    </div>
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Education System. All Rights Reserved.
+    </footer>
+
+</body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: rgba(9, 9, 83, 0.93);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background-image: url("{% static 'images/new.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Dark overlay for readability */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        /* Text content */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #270d6aff;
+        }
+
+        .hero p {
+            font-size: 0.8rem;
+            color: #240c74ff;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section h2,
+        .section p {
+            color: #1a0b63ff;
+        }
+
+        .courses {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: #0c0c58e8;
+            border-radius: 10px;
+            width: 280px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h3,
+        .card p {
+            color: white;
+        }
+
+        footer {
+            background: #160a51ff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="#home">Education System</a>
+        <div>
+            <a href="#home">Home</a>
+            <a href="{% url 'aboutus' %}">About Us</a>
+            {% comment %} <a href="#aboutus">About Us</a> {% endcomment %}
+            <a href="{% url 'courses' %}">Courses</a>
+            <a href="{% url 'signup' %}">Signup</a>
+             {% comment %} <a href="{% url 'details' %}">Details</a> {% endcomment %}
+            <a href="{% url 'login' %}">Login</a>
+            {% comment %} <a href="{% url 'register' %}">Sign Up</a> {% endcomment %}
+            <a href="#contact">Contact</a>
+            {% comment %} <button onclick="window.location.href='#login'">Login</button> {% endcomment %}
+            {% comment %} <button onclick="window.location.href='#signup'" style="padding: 0.4px 12px; font-size: 14px;">Sign Up</button> {% endcomment %}
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h1>Welcome to Your Academy</h1>
+        <p>Learn skills that will transform your future</p>
+    </div>
+</div>
+
+<!-- About Section -->
+{% comment %} <div class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+        Welcome to our Academy Platform, a modern Django-based system connecting
+        students and tutors for both free and paid education.
+    </p>
+</div> {% endcomment %}
+
+<!-- Courses Section -->
+{% comment %} <div class="section" id="courses">
+    <h2>Our Services</h2>
+    <div class="courses">
+        <div class="card">
+            <h3>Academy</h3>
+            <p>Connect with your tutors accourding to your preferances</p>
+        </div>
+        <div class="card">
+            <h3>Courses</h3>
+            <p>Learn Technical skills from experts</p>
+        </div>
+        <div class="card">
+            <h3>Professional Development</h3>
+            <p>Enhance your career with our professional development programs.</p>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<!-- Contact Section -->
+<div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: muqdisajaz123@gmail.com | Phone: +92-316-9228267</p>
+</div>
+
+<footer>
+    &copy; 2025 Education System. All Rights Reserved.
+</footer>
+
+</body>
+</html>

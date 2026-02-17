@@ -1,0 +1,140 @@
+{% comment %} <html>
+    <h1>Register Page</h1>
+    <form method="POST" actocomplete="off">
+        {% csrf_token %}
+        {{ registerationform.as_p }}
+        <button type="submit" value = "Register">Register</button>
+    </form>
+</html> {% endcomment %}
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<h1>Register</h1>
+
+<form method="POST" autocomplete="off">
+    {% csrf_token %}
+    {{ registrationform.as_p }}
+    <button type="submit">Register</button>
+</form>
+
+</body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Education System</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to right, #0c0c5dff, #0c0a5bff);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            background: #ffffff;
+            width: 320px;
+            padding: 30px;
+            height:600px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .register-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #0c0d56ff;
+        }
+
+        .helptext {
+            font-size: 12px;
+            color: #666;
+        }
+
+        ul {
+            font-size: 12px;
+            color: #c0392b;
+            padding-left: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0d0752ff;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .back-home a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h1>Create Account</h1>
+
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ registrationform.as_p }}
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="back-home">
+        <a href="{% url 'homepage' %}">← Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

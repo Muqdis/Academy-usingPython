@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background-color: #0b105aff;
+            color: white;
+            padding: 25px 0;
+        }
+
+        header nav {
+            width: 80%;
+            height: 6px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav /h2 {
+            font size: 10px;
+            margin: 0;
+        }
+
+        header nav h2 {
+            font-size: 22px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Courses Section */
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            width: 30%;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(11, 8, 71, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #0c0a53ff;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b1455ff;
+            color: white;
+            text-align: center;
+            padding: 1px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 900px) {
+            .card {
+                width: 45%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav>
+        <h2>Education System</h2>
+        <div>
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'aboutus' %}">About Us</a>
+            <a href="{% url 'courses' %}">Courses</a>
+        </div>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Our Courses & Services</h1>
+    <div class="courses">
+
+        <!-- Academy Section -->
+        <div class="card">
+            <img src="{% static 'images/student.png' %}" alt="Academy">
+            <h3>Academy (Grades 1-12)</h3>
+            <p>
+                We provide personalized tutoring for students from grade 1 to 12 in all subjects.  
+                Our experienced tutors help students improve their understanding, exam preparation, and academic performance.  
+                Services include Mathematics, Science, English, Computer Studies, and Social Studies.
+            </p>
+        </div>
+
+        <!-- Courses Section -->
+        <div class="card">
+            <img src="{% static 'images/tech.png' %}" alt="Courses">
+            <h3>Technical Courses</h3>
+            <p>
+                Learn practical and technical skills from experts.  
+                Courses include:  
+                <ul style="text-align:left; font-size:14px;">
+                    <li>Web Development – HTML, CSS, JavaScript, Django</li>
+                    <li>Data Science – Python, Machine Learning, Power BI</li>
+                    <li>Graphic Design – Photoshop, Illustrator</li>
+                    <li>Digital Marketing – SEO, Social Media Marketing</li>
+                </ul>
+                Each course is designed to provide hands-on experience and build job-ready skills.
+            </p>
+        </div>
+
+        <!-- Professional Development Section -->
+        <div class="card">
+            <img src="{% static 'images/pro.png' %}" alt="Professional Development">
+            <h3>Professional Development</h3>
+            <p>
+                Enhance your career with soft skills and personal development programs.  
+                Topics include Communication, Leadership, Time Management, Critical Thinking, and Teamwork.  
+                Benefits: improve workplace efficiency, strengthen interpersonal skills, and gain confidence for career growth.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Education System. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

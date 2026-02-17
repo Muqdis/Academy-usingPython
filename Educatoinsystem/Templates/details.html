@@ -1,0 +1,392 @@
+ {% comment %} <h2>Welcome {{ request.user.username }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <h3>You want to join as:</h3>
+    <label>
+        <input type="radio" name="role" value="teacher"
+               {% if form.instance.role == 'teacher' %}checked{% endif %}
+               onclick="toggleRole()">
+        Teacher
+    </label>
+
+    <label>
+        <input type="radio" name="role" value="student"
+               {% if form.instance.role == 'student' %}checked{% endif %}
+               onclick="toggleRole()">
+        Student
+    </label>
+
+    <br><br>
+
+    <!-- TEACHER SECTION -->
+    <div id="teacherSection" style="display:none;">
+        <h3>Teacher Details</h3>
+
+        <p>Services you want to provide:</p>
+        <label>
+            <input type="radio" name="service_type" value="free"
+                   {% if form.instance.service_type == 'free' %}checked{% endif %}>
+            Free
+        </label>
+
+        <label>
+            <input type="radio" name="service_type" value="paid"
+                   {% if form.instance.service_type == 'paid' %}checked{% endif %}>
+            Paid
+        </label>
+
+        <br><br>
+
+        <label>Subjects you want to teach:</label><br>
+        <textarea name="subjects">{{ form.instance.subjects }}</textarea>
+
+        <br><br>
+
+        <label>Preferred Timings:</label><br>
+        <input type="text" name="preferred_timings"
+               value="{{ form.instance.preferred_timings }}">
+    </div>
+
+    <!-- STUDENT SECTION -->
+    <div id="studentSection" style="display:none;">
+        <h3>Student Details</h3>
+
+        <p>Education type:</p>
+        <label>
+            <input type="radio" name="service_type" value="free"
+                   {% if form.instance.service_type == 'free' %}checked{% endif %}>
+            Free Education
+        </label>
+
+        <label>
+            <input type="radio" name="service_type" value="paid"
+                   {% if form.instance.service_type == 'paid' %}checked{% endif %}>
+            Paid Education
+        </label>
+
+        <br><br>
+
+        <label>Subjects you need help with:</label><br>
+        <textarea name="subjects">{{ form.instance.subjects }}</textarea>
+
+        <br><br>
+
+        <label>Preferred Timings:</label><br>
+        <input type="text" name="preferred_timings"
+               value="{{ form.instance.preferred_timings }}">
+    </div>
+
+    <br>
+    <button type="submit">Save Details</button>
+</form>
+
+<script>
+function toggleRole() {
+    let role = document.querySelector('input[name="role"]:checked');
+    let teacher = document.getElementById('teacherSection');
+    let student = document.getElementById('studentSection');
+
+    if (!role) return;
+
+    if (role.value === 'teacher') {
+        teacher.style.display = 'block';
+        student.style.display = 'none';
+    } else {
+        student.style.display = 'block';
+        teacher.style.display = 'none';
+    }
+}
+
+// Load correct section on page load
+window.onload = toggleRole;
+</script> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details Page - Educatoinsystem</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+
+    <!-- HEADER -->
+    <header style="background-color: #2c3e50; color: white; padding: 2px;">
+        <h1 style="font-size: 24px;">Educatoinsystem</h1>
+        <p>Welcome, {{ request.user.username }}!</p>
+    </header>
+    <nav style="background-color: #34495e; padding: 10px;">
+        <a href="{% url 'homepage' %}" style="color: white; margin-right: 20px; text-decoration: none;">Home</a>
+        <a href="/logout/" style="color: white; text-decoration: none;">Logout</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main style="padding: 20px;">
+
+        <h2 style="margin-bottom: 15px;">Complete Your Profile & Activity</h2>
+
+        <form method="POST" style="background-color: #ecf0f1; padding: 20px; border-radius: 8px;">
+            {% csrf_token %}
+
+            <!-- ROLE SELECTION -->
+            <h3>You want to join as:</h3>
+            <label>
+                <input type="radio" name="role" value="teacher"
+                       {% if form.instance.role == 'teacher' %}checked{% endif %}
+                       onclick="toggleRole()">
+                Teacher
+            </label>
+
+            <label>
+                <input type="radio" name="role" value="student"
+                       {% if form.instance.role == 'student' %}checked{% endif %}
+                       onclick="toggleRole()">
+                Student
+            </label>
+
+            <br><br>
+
+            <!-- TEACHER SECTION -->
+            <div id="teacherSection" style="display:none; margin-top: 15px;">
+                <h3>Teacher Details</h3>
+
+                <p>Services you want to provide:</p>
+                <label>
+                    <input type="radio" name="service_type" value="free"
+                           {% if form.instance.service_type == 'free' %}checked{% endif %}>
+                    Free
+                </label>
+
+                <label>
+                    <input type="radio" name="service_type" value="paid"
+                           {% if form.instance.service_type == 'paid' %}checked{% endif %}>
+                    Paid
+                </label>
+
+                <br><br>
+
+                <label>Subjects you want to teach:</label><br>
+                <textarea name="subjects" rows="3" cols="50">{{ form.instance.subjects }}</textarea>
+
+                <br><br>
+
+                <label>Preferred Timings:</label><br>
+                <input type="text" name="preferred_timings" size="50"
+                       value="{{ form.instance.preferred_timings }}">
+            </div>
+
+            <!-- STUDENT SECTION -->
+            <div id="studentSection" style="display:none; margin-top: 15px;">
+                <h3>Student Details</h3>
+
+                <p>Education type:</p>
+                <label>
+                    <input type="radio" name="service_type" value="free"
+                           {% if form.instance.service_type == 'free' %}checked{% endif %}>
+                    Free Education
+                </label>
+
+                <label>
+                    <input type="radio" name="service_type" value="paid"
+                           {% if form.instance.service_type == 'paid' %}checked{% endif %}>
+                    Paid Education
+                </label>
+
+                <br><br>
+
+                <label>Subjects you need help with:</label><br>
+                <textarea name="subjects" rows="3" cols="50">{{ form.instance.subjects }}</textarea>
+
+                <br><br>
+
+                <label>Preferred Timings:</label><br>
+                <input type="text" name="preferred_timings" size="50"
+                       value="{{ form.instance.preferred_timings }}">
+            </div>
+
+            <br>
+            <button type="submit" style="padding: 10px 20px; font-size: 16px;">Save Details</button>
+        </form>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background-color: #2c3e50; color: white; text-align: center; padding: 15px; margin-top: 20px;">
+        <p>&copy; 2026 Educatoinsystem. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR DYNAMIC SHOW/HIDE -->
+    <script>
+        function toggleRole() {
+            let role = document.querySelector('input[name="role"]:checked');
+            let teacher = document.getElementById('teacherSection');
+            let student = document.getElementById('studentSection');
+
+            if (!role) return;
+
+            if (role.value === 'teacher') {
+                teacher.style.display = 'block';
+                student.style.display = 'none';
+            } else {
+                student.style.display = 'block';
+                teacher.style.display = 'none';
+            }
+        }
+
+        // Load correct section on page load
+        window.onload = toggleRole;
+    </script>
+
+</body>
+</html> 
+    <!- 
+
+
+
+
+
+
+
+
+
+{% comment %} <form method="POST">
+    {% csrf_token %}
+
+    <!-- ROLE SELECTION -->
+    <h3>You want to join as:</h3>
+    {{ form.role }}  <!-- Django renders radio buttons for role -->
+
+    <br><br>
+
+    <!-- TEACHER SECTION -->
+    <div id="teacherSection" style="display:none;">
+        <h3>Teacher Details</h3>
+        <p>Services you want to provide:</p>
+        {{ form.service_type }}  <!-- Django renders radio buttons -->
+        <br><br>
+        <label>Subjects you want to teach:</label><br>
+        {{ form.subjects }} <!-- Django renders textarea -->
+        <br><br>
+        <label>Preferred Timings:</label><br>
+        {{ form.preferred_timings }}
+    </div>
+
+    <!-- STUDENT SECTION -->
+    <div id="studentSection" style="display:none;">
+        <h3>Student Details</h3>
+        <p>Education type:</p>
+        {{ form.service_type }}
+        <br><br>
+        <label>Subjects you need help with:</label><br>
+        {{ form.subjects }}
+        <br><br>
+        <label>Preferred Timings:</label><br>
+        {{ form.preferred_timings }}
+    </div>
+
+    <br>
+    <button type="submit">Save Details</button>
+</form> {% endcomment %}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Your Profile - Educatoinsystem</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin:0; padding:0;">
+
+    <!-- HEADER -->
+    <header style="background-color:#2c3e50; color:white; padding:10px 20px;">
+        <h1 style="font-size:24px; margin:0;">Educatoinsystem</h1>
+        <p style="margin:0;">Welcome, {{ request.user.username }}!</p>
+        <nav style="margin-top:5px;">
+            <a href="{% url 'homepage' %}" style="color:white; margin-right:15px; text-decoration:none;">Home</a>
+            <a href="{% url 'login' %}" style="color:white; text-decoration:none;">Logout</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="padding:20px;">
+        <h2>Complete Your Profile & Activity</h2>
+
+        <!-- FORM GOES HERE -->
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- ROLE SELECTION -->
+            <h3>You want to join as:</h3>
+            {{ form.role }}
+
+            <!-- TEACHER SECTION -->
+            <div id="teacherSection" style="display:none;">
+                <h3>Teacher Details</h3>
+                <p>Services you want to provide:</p>
+                {{ form.service_type }}
+                <br><br>
+                <label>Subjects you want to teach:</label><br>
+                {{ form.subjects }}
+                <br><br>
+                <label>Preferred Timings:</label><br>
+                {{ form.preferred_timings }}
+            </div>
+
+            <!-- STUDENT SECTION -->
+            <div id="studentSection" style="display:none;">
+                <h3>Student Details</h3>
+                <p>Education type:</p>
+                {{ form.service_type }}
+                <br><br>
+                <label>Subjects you need help with:</label><br>
+                {{ form.subjects }}
+                <br><br>
+                <label>Preferred Timings:</label><br>
+                {{ form.preferred_timings }}
+            </div>
+
+            <br>
+            <button type="submit">Save Details</button>
+        </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background-color:#2c3e50; color:white; text-align:center; padding:15px;">
+        &copy; 2026 Educatoinsystem. All Rights Reserved.
+    </footer>
+
+    <!-- DYNAMIC SHOW/HIDE -->
+    <script>
+        function toggleRole() {
+            let role = document.querySelector('input[name="role"]:checked');
+            let teacher = document.getElementById('teacherSection');
+            let student = document.getElementById('studentSection');
+
+            if (!role) return;
+
+            if (role.value === 'teacher') {
+                teacher.style.display = 'block';
+                student.style.display = 'none';
+            } else {
+                student.style.display = 'block';
+                teacher.style.display = 'none';
+            }
+        }
+
+        window.onload = toggleRole;
+    </script>
+
+</body>
+</html> {% endcomment %}
